@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust - Explore the World</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        /* Custom CSS for animations and hero background */
+        .hero-bg {
+            background: url('images/hero-bg.jpg') no-repeat center center/cover;
+            position: relative;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .animate-slide-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .animate-slide-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .team-member img, .destination img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+            border: 2px solid #000000; /* Added black border */
+        }
+        .team-member img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid #3b82f6;
+        }
+        .destination img:hover {
+            transform: scale(1.05);
+        }
+        /* Accordion styling */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            opacity: 0;
+        }
+        .accordion-content.open {
+            opacity: 1;
+            max-height: 500px; /* Adjust based on content */
+        }
+        .bio-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            opacity: 0;
+        }
+        .bio-content.open {
+            opacity: 1;
+            max-height: 200px; /* Adjust based on content */
+        }
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #000000;
+            color: #e2e8f0;
+        }
+        .dark-mode .bg-white {
+            background-color: #000000;
+        }
+        .dark-mode .bg-gray-100 {
+            background-color: #000000;
+        }
+        .dark-mode .text-gray-600 {
+            color: #cbd5e0;
+        }
+        .dark-mode .text-gray-800 {
+            color: #e2e8f0;
+        }
+        .dark-mode .bg-gray-800 {
+            background-color: #000000;
+        }
+        .dark-mode .accordion-item {
+            background-color: #000000;
+        }
+        .dark-mode .accordion-toggle:hover {
+            background-color: #000000;
+        }
+        .dark-mode .destination {
+            background-color: #000000;
+        }
+        /* Scroll-to-top button */
+        #scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3b82f6;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            z-index: 100;
+        }
+        #scroll-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #scroll-to-top:hover {
+            background-color: #2563eb;
+            transform: translateY(-5px);
+        }
+        /* Navigation link hover animation */
+        .navbar a {
+            position: relative;
+        }
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .navbar a:hover::after {
+            width: 100%;
+        }
+        /* Form validation styles */
+        .input-error {
+            border-color: #ef4444;
+        }
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        .input-error + .error-message {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-blue-800 to-purple-800 text-white p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="logo">
+                <h1 class="text-3xl font-bold">Wanderlust</h1>
+                <p class="text-sm">Your Ultimate Travel Guide</p>
+            </div>
+            <div class="flex items-center space-x-6">
+                <nav class="navbar space-x-6">
+                    <a href="home.html" class="hover:text-blue-400 transition">Home</a>
+                    <a href="aboutus.html" class="hover:text-blue-400 transition">About Us</a>
+                    <a href="destination.html" class="hover:text-blue-400 transition">Destinations</a>
+                    <a href="service.html" class="hover:text-blue-400 transition">Services</a>
+                    <a href="contact.html" class="hover:text-blue-400 transition">Contact</a>
+                </nav>
+                <button id="dark-mode-toggle" class="text-xl focus:outline-none" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white py-40 relative">
+        <div class="container mx-auto text-center z-10 relative animate-slide-in">
+            <h2 class="!text-5xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-lg">
+                Explore the World with <span class="text-blue-400">Wanderlust</span>
+            </h2>
+            <p class="text-[15px] md:text-[17px] font-light mb-10 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+                Embark on a journey to the most stunning places on personally tailored vacation experiences — from snow-capped peaks to sun-kissed beaches. 
+                Your next adventure begins right here.
+            </p>
+            <a href="destination.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-full shadow-lg transition duration-300 hover:scale-105">
+                🌍 Explore Destinations
+            </a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">About Us</h2>
+            <!-- Sub-navigation -->
+            <nav class="sticky top-16 bg-white shadow-md p-4 mb-8 rounded-lg z-40 animate-slide-in">
+                <ul class="flex justify-center space-x-4 md:space-x-6 flex-wrap">
+                    <li><a href="#mission" class="text-blue-600 hover:text-blue-800 font-semibold transition">Mission</a></li>
+                    <li><a href="#story" class="text-blue-600 hover:text-blue-800 font-semibold transition">Story</a></li>
+                    <li><a href="#what-we-do" class="text-blue-600 hover:text-blue-800 font-semibold transition">What We Do</a></li>
+                    <li><a href="#why-choose-us" class="text-blue-600 hover:text-blue-800 font-semibold transition">Why Choose Us</a></li>
+                    <li><a href="#core-values" class="text-blue-600 hover:text-blue-800 font-semibold transition">Core Values</a></li>
+                    <li><a href="#team" class="text-blue-600 hover:text-blue-800 font-semibold transition">Team</a></li>
+                </ul>
+            </nav>
+            <div class="about-content space-y-6">
+                <!-- Our Mission -->
+                <div id="mission" class="accordion-item bg-white rounded-lg shadow-lg animate-slide-in">
+    <button class="accordion-toggle w-full text-left p-6 flex items-center justify-between text-3xl font-semibold text-gray-800 hover:bg-gray-100 transition" aria-expanded="false">
+        <span><i class="fas fa-globe-americas mr-3 text-blue-600"></i> Our Mission</span>
+        <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+    </button>
+    <div class="accordion-content prose prose-lg text-gray-600 p-6">
+        <ul class="list-disc pl-6 space-y-2">
+            <li><strong>Unique Experiences:</strong> Crafting unforgettable, personalized travel adventures.</li>
+            <li><strong>Expert Guidance:</strong> Dedicated team ensuring smooth, hassle-free journeys.</li>
+            <li><strong>Global Connections:</strong> Partnering with local experts and premium providers worldwide.</li>
+            <li><strong>Quality & Care:</strong> Attention to detail and genuine service at every step.</li>
+        </ul>
+    </div>
+</div>
+
+                <!-- Our Story -->
+                <div id="story" class="accordion-item bg-white rounded-lg shadow-lg animate-slide-in">
+                    <button class="accordion-toggle w-full text-left p-6 flex items-center justify-between text-3xl font-semibold text-gray-800 hover:bg-gray-100 transition" aria-expanded="false">
+                        <span><i class="fas fa-book mr-3 text-blue-600"></i> Our Story</span>
+                        <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content prose prose-lg text-gray-600 p-6">
+                        <p>Founded by a final-year computer science student, Wanderlust was born from a passion for coding and a love of exploring new cultures and landscapes. Leveraging cutting-edge technology and youthful creativity, I have crafted a platform that streamlines every aspect of trip planning—connecting travelers to the world with intuitive design, seamless integration, and genuine enthusiasm.</p>
+                    </div>
+                </div>
+                <!-- What We Do -->
+                <div id="what-we-do" class="accordion-item bg-white rounded-lg shadow-lg animate-slide-in">
+                    <button class="accordion-toggle w-full text-left p-6 flex items-center justify-between text-3xl font-semibold text-gray-800 hover:bg-gray-100 transition" aria-expanded="false">
+                        <span><i class="fas fa-plane mr-3 text-blue-600"></i> What We Do</span>
+                        <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content prose prose-lg text-gray-600 p-6">
+                        <p>Wanderlust is your personal travel concierge. We craft custom trips, book flights and hotels, and manage every detail. From tours to destination weddings, we handle it all. With 24/7 support, enjoy a seamless and unforgettable journey.</p>
+                    </div>
+                </div>
+                <!-- Why Choose Us -->
+                <div id="why-choose-us" class="accordion-item bg-white rounded-lg shadow-lg animate-slide-in">
+                    <button class="accordion-toggle w-full text-left p-6 flex items-center justify-between text-3xl font-semibold text-gray-800 hover:bg-gray-100 transition" aria-expanded="false">
+                        <span><i class="fas fa-star mr-3 text-blue-600"></i> Why Choose Us?</span>
+                        <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content prose prose-lg text-gray-600 p-6">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li><strong>Expert Planners:</strong> Our team ensures seamless, memorable trips with years of expertise.</li>
+                            <li><strong>Personalized Itineraries:</strong> Custom trips tailored to your interests and budget.</li>
+                            <li><strong>Sustainable Travel:</strong> Eco-friendly partners for responsible tourism.</li>
+                            <li><strong>Global Network:</strong> Exclusive access to top hotels and experiences worldwide.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Our Core Values -->
+                <div id="core-values" class="accordion-item bg-white rounded-lg shadow-lg animate-slide-in">
+                    <button class="accordion-toggle w-full text-left p-6 flex items-center justify-between text-3xl font-semibold text-gray-800 hover:bg-gray-100 transition" aria-expanded="false">
+                        <span><i class="fas fa-heart mr-3 text-blue-600"></i> Our Core Values</span>
+                        <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content prose prose-lg text-gray-600 p-6">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li><strong>Integrity:</strong> Honest and transparent service you can trust.</li>
+                            <li><strong>Customer Satisfaction:</strong> Your happiness is our priority.</li>
+                            <li><strong>Innovation:</strong> Cutting-edge travel solutions and experiences.</li>
+                            <li><strong>Passion:</strong> We live for travel and share that enthusiasm with you.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Creator Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Meet the Creator</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="team-member text-center animate-slide-in mx-auto md:col-start-2">
+                    <img src="images/team-member-1.jpg" alt="Gaurav Sharma" class="w-64 aspect-square object-cover rounded-lg shadow-md mx-auto mb-4">
+                    <h4 class="text-xl font-semibold">Gaurav Sharma</h4>
+                    <p class="text-gray-600">Creator & Visionary</p>
+                    <p class="text-gray-600">Gaurav single-handedly built Wanderlust, fusing his web development expertise with a passion for travel to create a platform that inspires epic adventures worldwide.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-lg text-gray-600">With relentless drive and a vision for exploration, Gaurav crafted Wanderlust to spark journeys that resonate.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Top Destinations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="destination bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in">
+                    <img src="images/switzerland.jpg" alt="Switzerland" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Switzerland</h3>
+                        <p>Explore the majestic Alps and pristine lakes. Switzerland is the ultimate destination for outdoor lovers and those seeking tranquility amidst nature.</p>
+                    </div>
+                </div>
+                <div class="destination bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in">
+                    <img src="images/germany.jpg" alt="Germany" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Germany</h3>
+                        <p>From historic castles to vibrant cities, Germany offers a mix of culture, history, and adventure. Experience the magic of this amazing European country.</p>
+                    </div>
+                </div>
+                <div class="destination bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in">
+                    <img src="images/japan.jpg" alt="Japan" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Japan</h3>
+                        <p>Discover a blend of ancient traditions and modern innovation. From peaceful temples to bustling cities, Japan offers a fascinating travel experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Contact Us</h2>
+            <form id="contact-form" class="contact-form max-w-lg mx-auto space-y-6">
+                <div class="animate-slide-in">
+                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required
+                           class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    <span class="error-message">Please enter your full name.</span>
+                </div>
+                <div class="animate-slide-in">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required
+                           class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    <span class="error-message">Please enter a valid email address.</span>
+                </div>
+                <div class="animate-slide-in">
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"
+                           class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    <span class="error-message">Please enter a valid phone number (optional).</span>
+                </div>
+                <div class="animate-slide-in">
+                    <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Subject"
+                           class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    <span class="error-message">Please enter a subject (optional).</span>
+                </div>
+                <div class="animate-slide-in">
+                    <label for="message" class="block text-sm font-medium text-gray-700">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Write your message here" required
+                              class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 h-32"></textarea>
+                    <span class="error-message">Please enter your message.</span>
+                </div>
+                <div class="animate-slide-in">
+                    <button type="submit" id="submit-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+            <div id="form-message" class="text-center mt-4 hidden text-lg"></div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-xl font-semibold mb-4">Stay Connected</h3>
+            <div class="social-links flex justify-center space-x-6 mb-4">
+                <a href="https://www.instagram.com/gxuravshxrma?igsh=OW1mZDBnMWg0dHUz" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.linkedin.com/in/gaurav-sharma-gx?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/gxuravshxrma" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+            <p>© 2025 Wanderlust Designed by Gaurav Sharma. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div id="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+
+    <script>
+        // Smooth scrolling for navigation with accordion expansion
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    const accordionButton = targetElement.querySelector('.accordion-toggle');
+                    if (accordionButton && !accordionButton.nextElementSibling.classList.contains('open')) {
+                        accordionButton.click();
+                    }
+                }
+            });
+        });
+
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate-slide-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        animateElements.forEach(el => observer.observe(el));
+
+        // Accordion toggle with ARIA support
+        document.querySelectorAll('.accordion-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('.fa-chevron-down');
+                content.classList.toggle('open');
+                icon.classList.toggle('rotate-180');
+                const isNowOpen = content.classList.contains('open');
+                button.setAttribute('aria-expanded', isNowOpen);
+            });
+        });
+
+        // Team bio toggle (kept for potential future use)
+        document.querySelectorAll('.bio-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                content.classList.toggle('open');
+                button.textContent = content.classList.contains('open') ? 'Read Less' : 'Read More';
+            });
+        });
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+        const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+        if (isDarkMode) {
+            body.classList.add('dark-mode');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun    "></i>';
+        }
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+
+        // Scroll-to-top button
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Real-time form validation
+        const inputs = document.querySelectorAll('#contact-form input, #contact-form textarea');
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                if (input.id === 'name') {
+                    input.value = input.value.trim();
+                    if (input.value.length < 2) {
+                        input.classList.add('input-error');
+                    } else {
+                        input.classList.remove('input-error');
+                    }
+                }
+                if (input.id === 'email') {
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(input.value)) {
+                        input.classList.add('input-error');
+                    } else {
+                        input.classList.remove('input-error');
+                    }
+                }
+                if (input.id === 'phone') {
+                    const phonePattern = /^[0-9+\-\s]*$/;
+                    if (input.value && !phonePattern.test(input.value)) {
+                        input.classList.add('input-error');
+                    } else {
+                        input.classList.remove('input-error');
+                    }
+                }
+                if (input.id === 'message') {
+                    if (input.value.trim().length < 5) {
+                        input.classList.add('input-error');
+                    } else {
+                        input.classList.remove('input-error');
+                    }
+                }
+            });
+        });
+
+        // Contact form AJAX submission
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const messageDiv = document.getElementById('form-message');
+            const submitBtn = document.getElementById('submit-btn');
+
+            // Client-side validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            if (!name || !email || !message) {
+                alert('Please fill out all required fields.');
+                messageDiv.classList.remove('hidden');
+                messageDiv.classList.add('text-red-600');
+                messageDiv.textContent = 'Please fill out all required fields.';
+                return;
+            }
+            if (!email.includes('@') || !email.includes('.')) {
+                alert('Please enter a valid email address.');
+                messageDiv.classList.remove('hidden');
+                messageDiv.classList.add('text-red-600');
+                messageDiv.textContent = 'Please enter a valid email address.';
+                return;
+            }
+
+            // Collect form data
+            const formData = {
+                name: name,
+                email: email,
+                phone: document.getElementById('phone').value.trim(),
+                subject: document.getElementById('subject').value.trim(),
+                message: message
+            };
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            // Send data to sendmail.php
+            fetch('sendmail.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                messageDiv.classList.remove('hidden');
+                if (data.success) {
+                    alert('Thank you for your message! We’ll get back to you soon.');
+                    messageDiv.classList.remove('text-red-600');
+                    messageDiv.classList.add('text-green-600');
+                    messageDiv.textContent = data.success;
+                    document.getElementById('contact-form').reset();
+                } else {
+                    alert('Error: ' + data.error);
+                    messageDiv.classList.remove('text-green-600');
+                    messageDiv.classList.add('text-red-600');
+                    messageDiv.textContent = data.error;
+                }
+            })
+            .catch(error => {
+                alert('An error occurred. Please try again.');
+                messageDiv.classList.remove('hidden');
+                messageDiv.classList.remove('text-green-600');
+                messageDiv.classList.add('text-red-600');
+                messageDiv.textContent = 'An error occurred. Please try again.';
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            });
+        });
+    </script>
+</body>
+</html>

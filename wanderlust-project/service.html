@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Wanderlust</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+     <!-- favicon-->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        /* Custom CSS for animations */
+        .animate-slide-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .animate-slide-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .service img {
+            transition: transform 0.3s ease;
+        }
+        .service img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header Section -->
+    <header class="bg-gray-800 text-white p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="logo">
+                <h1 class="text-3xl font-bold">Wanderlust</h1>
+                <p class="text-sm">Your Ultimate Travel Guide</p>
+            </div>
+            <nav class="navbar space-x-6">
+                <a href="home.html" class="hover:text-blue-400 transition">Home</a>
+                <a href="home.html#about" class="hover:text-blue-400 transition">About Us</a>
+                <a href="destination.html" class="hover:text-blue-400 transition">Destinations</a>
+                <a href="services.html" class="hover:text-blue-400 transition">Services</a>
+                <a href="home.html#contact" class="hover:text-blue-400 transition">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">At Wanderlust, we offer a wide range of travel services tailored to your needs. From personalized itineraries to sustainable travel options, our expert team ensures your journey is seamless and unforgettable.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="service bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in">
+                    <img src="images/personalized-itineraries.jpg" alt="Personalized Itineraries" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Personalized Itineraries</h3>
+                        <p>We craft custom travel plans based on your interests, budget, and schedule. Whether you’re seeking adventure, relaxation, or cultural immersion, our itineraries are designed to match your unique preferences.</p>
+                    </div>
+                </div>
+                <div class="service bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in">
+                    <img src="images/guided-tours.jpg" alt="Guided Tours" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Guided Tours</h3>
+                        <p>Explore destinations with our expert guides who provide in-depth knowledge and insider tips. From historical sites to hidden gems, our tours offer an enriching and hassle-free experience.</p>
+                    </div>
+                </div>
+                <div class="service bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in">
+                    <img src="images/group-packages.jpg" alt="Group Packages" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Group Packages</h3>
+                        <p>Perfect for families, friends, or organizations, our group packages offer discounted rates and coordinated travel plans. Enjoy shared adventures with seamless logistics and group-friendly activities.</p>
+                    </div>
+                </div>
+                <div class="service bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in">
+                    <img src="images/corporate-travel-planning.jpg" alt="Corporate Travel" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Corporate Travel Planning</h3>
+                        <p>We streamline business travel with efficient itineraries, premium accommodations, and 24/7 support. Our services cater to conferences, team-building retreats, and executive trips.</p>
+                    </div>
+                </div>
+                <div class="service bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in">
+                    <img src="images/destination-weddings.jpg" alt="Destination Weddings" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Destination Weddings</h3>
+                        <p>Plan your dream wedding in exotic locations. We handle venues, guest travel, and event coordination to ensure your special day is unforgettable and stress-free.</p>
+                    </div>
+                </div>
+                <div class="service bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in">
+                    <img src="images/sustainable-travel-options.jpg" alt="Sustainable Travel" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Sustainable Travel Options</h3>
+                        <p>We partner with eco-friendly providers to offer sustainable travel experiences. Minimize your environmental impact while exploring the world responsibly.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Additional Information -->
+            <div class="mt-12 text-center animate-slide-in">
+                <h3 class="text-2xl font-semibold mb-4">Why Our Services Stand Out</h3>
+                <p class="text-gray-600 mb-6 max-w-3xl mx-auto">Our services are backed by a network of partners, ensuring exclusive access to premium experiences. With a focus on customer satisfaction, innovation, and sustainability, we go beyond standard travel planning to create journeys that inspire.</p>
+                <a href="home.html#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-xl font-semibold mb-4">Stay Connected</h3>
+            <div class="social-links flex justify-center space-x-6 mb-4">
+                <a href="https://www.instagram.com/gxuravshxrma?igsh=OW1mZDBnMWg0dHUz" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.linkedin.com/in/gaurav-sharma-gx?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/gxuravshxrma" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+            <p>© 2025 Wanderlust Designed by Gaurav Sharma. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate-slide-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        animateElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

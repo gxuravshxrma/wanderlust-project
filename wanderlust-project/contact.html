@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Wanderlust</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+     <!-- favicon-->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        /* Custom CSS for animations and hero background */
+        .hero-bg {
+            background: url('images/contact-us.jpg') no-repeat center center/cover;
+            position: relative;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .animate-slide-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .animate-slide-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .contact-icon {
+            transition: transform 0.3s ease;
+        }
+        .contact-icon:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header Section -->
+    <header class="bg-gray-800 text-white p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="logo">
+                <h1 class="text-3xl font-bold">Wanderlust</h1>
+                <p class="text-sm">Your Ultimate Travel Guide</p>
+            </div>
+            <nav class="navbar space-x-6">
+                <a href="home.html" class="hover:text-blue-400 transition">Home</a>
+                <a href="aboutus.html" class="hover:text-blue-400 transition">About Us</a>
+                <a href="destination.html" class="hover:text-blue-400 transition">Destinations</a>
+                <a href="service.html" class="hover:text-blue-400 transition">Services</a>
+                <a href="contact.html" class="hover:text-blue-400 transition">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Intro Section -->
+    <section class="hero-bg text-white py-24 relative">
+        <div class="container mx-auto text-center z-10 relative animate-slide-in">
+            <h2 class="!text-4xl md:text-5xl font-extrabold mb-6 leading-tight drop-shadow-lg">
+                Let’s Plan Your Next Adventure!
+            </h2>
+            <p class="text-[15px] md:text-[17px] font-light mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+                Have a question or ready to start your journey with Wanderlust? Our friendly team is here to help you every step of the way. Reach out today, and let’s make your travel dreams come true!
+            </p>
+            <a href="#contact-form" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300 hover:scale-105">
+                Get in Touch
+            </a>
+        </div>
+        <div class="absolute inset-0 bg-black bg-opacity-40 z-0"></div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact-form" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Send Us a Message</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-xl mx-auto">Fill out the form below, and we’ll get back to you within 24 hours. Whether it’s a trip inquiry or just a hello, we’d love to hear from you!</p>
+            <form id="contact-form" class="max-w-lg mx-auto space-y-6 animate-slide-in">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Your email" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Your phone number" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+                <div>
+                    <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="What’s this about?" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your travel plans or questions" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 h-36"></textarea>
+                </div>
+                <div>
+                    <button type="submit" id="submit-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition">Send Message</button>
+                </div>
+            </form>
+            <div id="form-message" class="text-center mt-4 hidden text-lg"></div>
+        </div>
+    </section>
+
+    <!-- Contact Details Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Other Ways to Reach Us</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="text-center animate-slide-in">
+                    <i class="fas fa-envelope text-4xl text-blue-600 mb-4 contact-icon"></i>
+                    <h3 class="text-xl font-semibold mb-2">Email Us</h3>
+                    <p class="text-gray-600">support@wanderlust.com</p>
+                </div>
+                <div class="text-center animate-slide-in">
+                    <i class="fas fa-phone text-4xl text-blue-600 mb-4 contact-icon"></i>
+                    <h3 class="text-xl font-semibold mb-2">Call Us</h3>
+                    <p class="text-gray-600">+91 9877550846</p>
+                </div>
+                <div class="text-center animate-slide-in">
+                    <i class="fas fa-map-marker-alt text-4xl text-blue-600 mb-4 contact-icon"></i>
+                    <h3 class="text-xl font-semibold mb-2">Visit Us</h3>
+                    <p class="text-gray-600">123 Travel Lane, Adventure City, India</p>
+                </div>
+            </div>
+            <div class="mt-12 text-center animate-slide-in">
+                <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://www.instagram.com/gxuravshxrma?igsh=OW1mZDBnMWg0dHUz" target="_blank" class="text-blue-600 hover:text-blue-800 contact-icon"><i class="fab fa-instagram text-3xl"></i></a>
+                    <a href="https://www.linkedin.com/in/gaurav-sharma-gx?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-blue-600 hover:text-blue-800 contact-icon"><i class="fab fa-linkedin text-3xl"></i></a>
+                    <a href="https://github.com/gxuravshxrma" target="_blank" class="text-blue-600 hover:text-blue-800 contact-icon"><i class="fab fa-github text-3xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-xl font-semibold mb-4">Stay Connected</h3>
+            <div class="social-links flex justify-center space-x-6 mb-4">
+                <a href="https://www.instagram.com/gxuravshxrma?igsh=OW1mZDBnMWg0dHUz" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.linkedin.com/in/gaurav-sharma-gx?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/gxuravshxrma" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+            <p>© 2025 Wanderlust Designed by Gaurav Sharma. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+  
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate-slide-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        animateElements.forEach(el => observer.observe(el));
+
+        // Contact form AJAX submission
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const messageDiv = document.getElementById('form-message');
+            const submitBtn = document.getElementById('submit-btn');
+
+            // Client-side validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !subject || !message) {
+                alert('Please fill out all required fields.');
+                messageDiv.classList.remove('hidden');
+                messageDiv.classList.add('text-red-600');
+                messageDiv.textContent = 'Please fill out all required fields.';
+                return;
+            }
+            if (!email.includes('@') || !email.includes('.')) {
+                alert('Please enter a valid email address.');
+                messageDiv.classList.remove('hidden');
+                messageDiv.classList.add('text-red-600');
+                messageDiv.textContent = 'Please enter a valid email address.';
+                return;
+            }
+
+            // Collect form data
+            const formData = {
+                name: name,
+                email: email,
+                phone: phone,
+                subject: subject,
+                message: message
+            };
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            // Send data to sendmail.php
+            fetch('sendmail.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                messageDiv.classList.remove('hidden');
+                if (data.success) {
+                    alert('Thank you for your message! We’ll get back to you soon.');
+                    messageDiv.classList.remove('text-red-600');
+                    messageDiv.classList.add('text-green-600');
+                    messageDiv.textContent = data.success;
+                    document.getElementById('contact-form').reset();
+                } else {
+                    alert('Error: ' + data.error);
+                    messageDiv.classList.remove('text-green-600');
+                    messageDiv.classList.add('text-red-600');
+                    messageDiv.textContent = data.error;
+                }
+            })
+            .catch(error => {
+                alert('An error occurred. Please try again.');
+                messageDiv.classList.remove('hidden');
+                messageDiv.classList.remove('text-green-600');
+                messageDiv.classList.add('text-red-600');
+                messageDiv.textContent = 'An error occurred. Please try again.';
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            });
+        });
+    </script>
+</body>
+</html>

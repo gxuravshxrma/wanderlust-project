@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Wanderlust</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- favicon-->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        /* Custom CSS for animations and hero background */
+        .hero-bg {
+            background: url('images/about-us.jpg') no-repeat center center/cover;
+            position: relative;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .animate-slide-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .animate-slide-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .team-member img, .testimonial img {
+            transition: transform 0.3s ease;
+        }
+        .team-member img:hover, .testimonial img:hover {
+            transform: scale(1.05);
+        }
+        /* Timeline styling */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: #3b82f6;
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .timeline-content {
+            width: 45%;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        /* Testimonial slider */
+        .testimonial-slider {
+            overflow: hidden;
+            position: relative;
+        }
+        .testimonial-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .testimonial {
+            min-width: 100%;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header Section -->
+    <header class="bg-gray-800 text-white p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="logo">
+                <h1 class="text-3xl font-bold">Wanderlust</h1>
+                <p class="text-sm">Your Ultimate Travel Guide</p>
+            </div>
+            <nav class="navbar space-x-6">
+                <a href="home.html" class="hover:text-blue-400 transition">Home</a>
+                <a href="aboutus.html" class="hover:text-blue-400 transition">About Us</a>
+                <a href="destination.html" class="hover:text-blue-400 transition">Destinations</a>
+                <a href="service.html" class="hover:text-blue-400 transition">Services</a>
+                <a href="home.html#contact" class="hover:text-blue-400 transition">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-40 relative">
+        <div class="container mx-auto text-center z-10 relative animate-slide-in">
+            <h2 class="!text-5xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-lg">
+                About <span class="text-blue-400">Wanderlust</span>
+            </h2>
+            <p class="text-[15px] md:text-[17px] font-light mb-10 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+                Discover the story behind Wanderlust, a passionate team dedicated to crafting unforgettable travel experiences that inspire and connect people worldwide.
+            </p>
+            <a href="#our-story" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-full shadow-lg transition duration-300 hover:scale-105">
+                Our Story
+            </a>
+        </div>
+        <div class="absolute inset-0 bg-black bg-opacity-40 z-0"></div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="our-story" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Story</h2>
+            <div class="animate-slide-in max-w-4xl mx-auto">
+                <p class="text-gray-600 mb-6">Wanderlust was founded in 2025 as part of an academic project by a passionate computer science student with a love for travel and exploration. Recognizing the challenges travelers often face in planning meaningful journeys, the project was developed to create a streamlined platform that combines simplicity with inspiration. Wanderlust aims to connect adventurers with diverse cultures, breathtaking destinations, and unforgettable experiences. While still in its early stages, Wanderlust reflects a strong commitment to innovation, user-centered design, and the spirit of discovery.</p>
+                <p class="text-gray-600 mb-6">Founded with a vision to transform how we experience the world, Wanderlust is more than just a platform for discovering destinations — it represents a movement toward thoughtful, immersive, and sustainable travel. This project encourages travelers to embrace new cultures, challenge their perspectives, and create stories that last a lifetime. From the breathtaking landscapes of Europe to hidden gems across the globe, we are dedicated to reimagining the future of travel — one unforgettable journey at a time. As the journey continues, the commitment remains strong: to evolve, innovate, and inspire a new generation of explorers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Mission</h2>
+            <div class="animate-slide-in max-w-4xl mx-auto">
+                <p class="text-gray-600 mb-6">At Wanderlust, our mission is to transform travel into a journey of discovery and joy. We strive to provide personalized, seamless, and sustainable travel experiences that cater to your unique passions and preferences. Whether you’re chasing adventure, seeking relaxation, or craving cultural immersion, we’re here to make your dream trip a reality.</p>
+                <p class="text-gray-600 mb-6">We believe travel has the power to connect communities, broaden perspectives, and create lasting memories. That’s why Wanderlust integrates smart design, curated content, and user-focused features to help travelers discover, plan, and experience meaningful journeys that are as seamless as they are unforgettable.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Journey Timeline -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Journey Through Time</h2>
+            <div class="timeline">
+                <div class="timeline-item animate-slide-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-semibold mb-2">Early 2025 - Industry Experience</h3>
+                        <p>Started an internship, working on real-world web development projects and gaining insights into professional website building and client requirements.</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate-slide-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-semibold mb-2">Mid 2025 - Wanderlust Project Begins</h3>
+                        <p>Inspired by internship experiences and a passion for travel, began developing Wanderlust as part of the final-year academic project, focusing on modern web solutions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate-slide-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-semibold mb-2">Mid to Late 2025 - Project Launch</h3>
+                        <p>Completed and launched the Wanderlust website, offering curated destinations, simple navigation, and engaging content to make travel planning more exciting and accessible.</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate-slide-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-semibold mb-2">Future Vision</h3>
+                        <p>Plan to expand Wanderlust with personalized itineraries, event management features, and sustainable travel options, evolving it into a complete travel solution platform.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Why Choose Wanderlust?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="animate-slide-in">
+                    <h3 class="text-xl font-semibold mb-2">Expert Travel Planners</h3>
+                    <p>Our team of seasoned travelers and planners brings decades of experience to craft journeys that are seamless, memorable, and tailored to your desires.</p>
+                </div>
+                <div class="animate-slide-in">
+                    <h3 class="text-xl font-semibold mb-2">Personalized Experiences</h3>
+                    <p>We reject cookie-cutter trips. Every itinerary is customized to your interests, ensuring a unique adventure that reflects who you are.</p>
+                </div>
+                <div class="animate-slide-in">
+                    <h3 class="text-xl font-semibold mb-2">Sustainable Practices</h3>
+                    <p>We’re committed to preserving the planet, partnering with eco-conscious providers to minimize your travel footprint while maximizing impact.</p>
+                </div>
+                <div class="animate-slide-in">
+                    <h3 class="text-xl font-semibold mb-2">Global Connections</h3>
+                    <p>Our extensive network of partners worldwide grants you exclusive access to premium hotels, local guides, and hidden gems others can’t offer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Creator Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Meet the Creator</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="team-member text-center animate-slide-in mx-auto md:col-start-2">
+                    <img src="images/team-member-1.jpg" alt="Gaurav Sharma" class="w-64 aspect-square object-cover rounded-lg shadow-md mx-auto mb-4">
+                    <h4 class="text-xl font-semibold">Gaurav Sharma</h4>
+                    <p class="text-gray-600">Creator & Visionary</p>
+                    <p class="text-gray-600">Gaurav single-handedly built Wanderlust, fusing his web development expertise with a passion for travel to create a platform that inspires epic adventures worldwide.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-lg text-gray-600">With relentless drive and a vision for exploration, Gaurav crafted Wanderlust to spark journeys that resonate.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">What Our Travelers Have to Say</h2>
+            <div class="testimonial-slider animate-slide-in">
+                <div class="testimonial-container">
+                    <div class="testimonial text-center">
+                        <img src="images/traveler-1.jpg" alt="Traveler 1" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <p class="text-gray-600 mb-4 max-w-2xl mx-auto">"Wanderlust planned an incredible trip to Japan. Every detail was perfect, from the temples to the bullet trains!"</p>
+                        <p class="font-semibold">Sarah M.</p>
+                    </div>
+                    <div class="testimonial text-center">
+                        <img src="images/traveler-2.jpg" alt="Traveler 2" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <p class="text-gray-600 mb-4 max-w-2xl mx-auto">"Our safari in Kenya was a dream come true, thanks to Wanderlust’s expert guides and seamless planning."</p>
+                        <p class="font-semibold">Michael T.</p>
+                    </div>
+                    <div class="testimonial text-center">
+                        <img src="images/traveler-3.jpg" alt="Traveler 3" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <p class="text-gray-600 mb-4 max-w-2xl mx-auto">"The sustainable travel options made our Peru trip meaningful and unforgettable."</p>
+                        <p class="font-semibold">John D.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center space-x-4 mt-6">
+                <button id="prevTestimonial" class="bg-blue-600 text-white p-2 rounded-full"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextTestimonial" class="bg-blue-600 text-white p-2 rounded-full"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Vision Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Vision</h2>
+            <div class="animate-slide-in max-w-4xl mx-auto">
+                <p class="text-gray-600 mb-6">We envision a world where travel is not just a getaway but a transformative experience that fosters understanding, sustainability, and joy. Wanderlust aims to lead the travel industry by innovating new ways to explore, connecting travelers with authentic experiences, and preserving the planet for future generations.</p>
+                <p class="text-gray-600 mb-6">Over the next decade, we aim to enhance our global presence, leverage advanced technologies to streamline trip planning, and strengthen our commitment to sustainable and responsible travel practices. We invite you to be part of this exciting journey, where every adventure is crafted with precision and care, creating unforgettable experiences for travelers worldwide.</p>
+                <a href="contact.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition">Connect With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-xl font-semibold mb-4">Stay Connected</h3>
+            <div class="social-links flex justify-center space-x-6 mb-4">
+                <a href="https://www.instagram.com/gxuravshxrma?igsh=OW1mZDBnMWg0dHUz" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.linkedin.com/in/gaurav-sharma-gx?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/gxuravshxrma" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+            <p>© 2025 Wanderlust Designed by Gaurav Sharma. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script-project.js"></script>
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate-slide-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        animateElements.forEach(el => observer.observe(el));
+
+        // Testimonial slider
+        const testimonialContainer = document.querySelector('.testimonial-container');
+        const testimonials = document.querySelectorAll('.testimonial');
+        let currentTestimonial = 0;
+
+        document.getElementById('nextTestimonial').addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            testimonialContainer.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+        });
+
+        document.getElementById('prevTestimonial').addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            testimonialContainer.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+        });
+    </script>
+</body>
+</html>

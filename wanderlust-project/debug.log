@@ -1,0 +1,50 @@
+2025-04-30 19:37:21 Raw Input: {"name":"rooftopbeatz","email":"test@gmail.com","phone":"7","subject":"testing","message":"e"}
+
+2025-04-30 19:37:21 Data: {"name":"rooftopbeatz","email":"test@gmail.com","phone":"7","subject":"testing","message":"e"}
+
+2025-04-30 19:37:25 Error: DB connection failed - No connection could be made because the target machine actively refused it
+2025-04-30 19:37:25 Error: DB connection failed - No connection could be made because the target machine actively refused it
+2025-04-30 19:38:09 Raw Input: {"name":"rooftopbeatz","email":"test@gmail.com","phone":"7","subject":"testing","message":"e"}
+2025-04-30 19:38:09 Data: {"name":"rooftopbeatz","email":"test@gmail.com","phone":"7","subject":"testing","message":"e"}
+:"e"}
+2025-04-30 19:38:09 Data: {"name":"rooftopbeatz","email":"test@gmail.com","phone":"7","subject":"testing ","message":"e"}
+2025-04-30 19:38:09 Success: Message saved
+2025-04-30 19:38:09 Success: Message saved
+2025-04-30 19:43:12 Raw Input: {"name":"Gaurav Sharma","email":"gaurav621.961@gmail.com","phone":"9877550846","subject":"testing","message":"im interested in brazil"}
+2025-04-30 19:43:12 Data: {"name":"Gaurav Sharma","email":"gaurav621.961@gmail.com","phone":"9877550846","subject":"testing","message":"im interested in brazil"}
+2025-04-30 19:43:12 Raw Input: {"name":"Gaurav Sharma","email":"gaurav621.961@gmail.com","phone":"9877550846","subject":"testing ","message":"im interested in brazil"}
+2025-04-30 19:43:12 Data: {"name":"Gaurav Sharma","email":"gaurav621.961@gmail.com","phone":"9877550846","subject":"testing ","message":"im interested in brazil"}
+2025-04-30 19:43:12 Success: Message saved
+2025-04-30 19:43:12 Success: Message saved
+2025-04-30 19:59:14 Raw Input: {"name":"gaurav","email":"test12@gmail.com","phone":"7","subject":"testing","message":"test"}
+2025-04-30 19:59:14 Data: {"name":"gaurav","email":"test12@gmail.com","phone":"7","subject":"testing","message":"test"}
+2025-04-30 19:59:14 Success: Message saved
+2025-04-30 20:00:56 Raw Input: {"name":"Gaurav Sharma","email":"gaurav621.961@gmail.com","phone":"9877550846","subject":"testing contact","message":"test"}
+2025-04-30 20:00:56 Data: {"name":"Gaurav Sharma","email":"gaurav621.961@gmail.com","phone":"9877550846","subject":"testing contact","message":"test"}
+2025-04-30 20:00:56 Success: Message saved
+2025-04-30 20:01:49 Raw Input: {"name":"h","email":"test@gmail.com","phone":"123456789","subject":"testing","message":"test"}
+2025-04-30 20:01:49 Data: {"name":"h","email":"test@gmail.com","phone":"123456789","subject":"testing","message":"test"}
+2025-04-30 20:01:49 Success: Message saved
+2025-05-18 19:53:28 Raw Input: {"name":"final-testing-1","email":"testfr@gmail.com","phone":"9988776655","subject":"testing for the viva","message":"test test test"}
+2025-05-18 19:53:28 Raw Input: {"name":"final-testing-1","email":"testfr@gmail.com","phone":"9988776655","subject":"testing for the viva","message":"test test test"}
+2025-05-18 19:53:28 Data: {"name":"final-testing-1","email":"testfr@gmail.com","phone":"9988776655","subject":"testing for the viva","message":"test test test"}
+2025-05-18 19:53:28 Data: {"name":"final-testing-1","email":"testfr@gmail.com","phone":"9988776655","subject":"testing for the viva","message":"test test test"}
+2025-05-18 19:53:28 Success: Message saved
+2025-05-18 19:53:28 Success: Message saved
+2025-05-19 17:30:29 Raw Input: {"name":"tester","email":"test@gmail.com","phone":"9988776655","subject":"testing contact @ home","message":"test a"}
+2025-05-19 17:30:29 Data: {"name":"tester","email":"test@gmail.com","phone":"9988776655","subject":"testing contact @ home","message":"test a"}
+2025-05-19 17:30:29 Data: {"name":"tester","email":"test@gmail.com","phone":"9988776655","subject":"testing contact @ home","message":"test a"}
+2025-05-19 17:30:29 Success: Message saved
+2025-05-19 17:30:29 Success: Message saved
+2025-05-19 17:31:05 Raw Input: {"name":"tester 2","email":"test@gmail.com","phone":"9988776655","subject":"testing contact","message":"test"}
+2025-05-19 17:31:05 Data: {"name":"tester 2","email":"test@gmail.com","phone":"9988776655","subject":"testing contact","message":"test"}
+2025-05-19 17:31:05 Success: Message saved
+2025-05-19 17:31:25 Raw Input: {"name":"tester 2","email":"test@gmail.com","phone":"9988776655","subject":"testing contact","message":"test ba"}
+2025-05-19 17:31:25 Data: {"name":"tester 2","email":"test@gmail.com","phone":"9988776655","subject":"testing contact","message":"test ba"}
+2025-05-19 17:31:25 Success: Message saved
+2025-05-20 17:23:45 Raw Input: {"name":"GAURAV","email":"test123@gmail.com","phone":"9877550846","subject":"FINAL TEST","message":"TEST FOR TESTING"}
+2025-05-20 17:23:45 Raw Input: {"name":"GAURAV","email":"test123@gmail.com","phone":"9877550846","subject":"FINAL TEST","message":"TEST FOR TESTING"}
+2025-05-20 17:23:45 Data: {"name":"GAURAV","email":"test123@gmail.com","phone":"9877550846","subject":"FINAL TEST","message":"TEST FOR TESTING"}
+2025-05-20 17:23:45 Data: {"name":"GAURAV","email":"test123@gmail.com","phone":"9877550846","subject":"FINAL TEST","message":"TEST FOR TESTING"}
+2025-05-20 17:23:45 Success: Message saved
+2025-05-20 17:23:45 Success: Message saved

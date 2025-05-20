@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations - Wanderlust</title>
+     <!-- favicon-->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .animate-slide-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .animate-slide-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .destination img {
+            transition: transform 0.3s ease;
+        }
+        .destination img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <header class="bg-gray-800 text-white p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="logo">
+                <h1 class="text-3xl font-bold">Wanderlust</h1>
+                <p class="text-sm">Your Ultimate Travel Guide</p>
+            </div>
+            <nav class="navbar space-x-6">
+                <a href="home.html" class="hover:text-blue-400 transition">Home</a>
+                <a href="home.html#about" class="hover:text-blue-400 transition">About Us</a>
+                <a href="destinations.html" class="hover:text-blue-400 transition">Destinations</a>
+                <a href="home.html#services" class="hover:text-blue-400 transition">Services</a>
+                <a href="home.html#contact" class="hover:text-blue-400 transition">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Explore Our Destinations</h2>
+            <!-- Filter Bar -->
+            <div class="flex justify-center mb-8">
+                <select id="continentFilter" class="p-2 border rounded-lg">
+                    <option value="all">All Continents</option>
+                    <option value="europe">Europe</option>
+                    <option value="asia">Asia</option>
+                    <option value="africa">Africa</option>
+                    <option value="north-america">North America</option>
+                    <option value="south-america">South America</option>
+                    <option value="australia">Australia</option>
+                </select>
+            </div>
+            <!-- Destination Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="destination bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in" data-continent="europe">
+                    <img src="images/switzerland.jpg" alt="Switzerland" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Switzerland</h3>
+                        <p>Discover the serene Alps, crystal-clear lakes, and charming villages. Perfect for skiing, hiking, and relaxation.</p>
+                        <a href="#" class="text-blue-600 hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <div class="destination bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in" data-continent="asia">
+                    <img src="images/japan.jpg" alt="Switzerland" class="w-full h-48 object-cover">
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Japan</h3>
+                        <p>Experience ancient temples, vibrant cities, and cherry blossoms. A blend of tradition and modernity awaits.</p>
+                        <a href="#" class="text-blue-600 hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <div class="destination bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in" data-continent="europe">
+                    <img src="images/germany.jpg" alt="Germany" class="w-full h-48 object-cover">
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Germany</h3>
+                        <p>From fairy-tale castles to bustling Berlin, Germany offers rich history and vibrant culture.</p>
+                        <a href="#" class="text-blue-600 hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <div class="destination bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in" data-continent="asia">
+                    <img src="images/india.jpg" alt="India" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">India</h3>
+                        <p>Explore the rich heritage of India — from the Himalayas to Kerala, with colorful festivals and diverse cultures.</p>
+                        <a href="#" class="text-blue-600 hover:underline">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="destination bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in" data-continent="south-america">
+                    <img src="images/peru.jpg" alt="Peru" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Peru</h3>
+                        <p>Explore the ancient ruins of Machu Picchu and the vibrant markets of Cusco in this Andean gem.</p>
+                        <a href="#" class="text-blue-600 hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <div class="destination bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in" data-continent="north-america">
+                    <img src="images/canada.jpg" alt="Canada" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Canada</h3>
+                        <p>Discover breathtaking Rockies, vibrant cities like Vancouver, and the stunning Niagara Falls.</p>
+                        <a href="#" class="text-blue-600 hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <div class="destination bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in" data-continent="asia">
+                    <img src="images/thailand.jpg" alt="Thailand" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Thailand</h3>
+                        <p>Relax on pristine beaches, explore bustling Bangkok, and savor world-famous Thai cuisine.</p>
+                        <a href="#" class="text-blue-600 hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <div class="destination bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in" data-continent="australia">
+                    <img src="images/australia.jpg" alt="Australia" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Australia</h3>
+                        <p>Dive into the Great Barrier Reef, explore Sydney’s iconic landmarks, and meet unique wildlife.</p>
+                        <a href="#" class="text-blue-600 hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <div class="destination bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in" data-continent="europe">
+                    <img src="images/italy.jpg" alt="Italy" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Italy</h3>
+                        <p>Indulge in Rome’s history, Venice’s canals, and Tuscany’s rolling hills and fine wines.</p>
+                        <a href="#" class="text-blue-600 hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <div class="destination bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in" data-continent="africa">
+                    <img src="images/morocco.jpg" alt="Morocco" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Morocco</h3>
+                        <p>Wander through vibrant souks, explore the Sahara Desert, and stay in historic riads.</p>
+                        <a href="#" class="text-blue-600 hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <div class="destination bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in" data-continent="south-america">
+                    <img src="images/brazil.jpg" alt="Brazil" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Brazil</h3>
+                        <p>Experience Rio’s Carnival, Amazon rainforests, and the vibrant beaches of Copacabana.</p>
+                        <a href="#" class="text-blue-600 hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <div class="destination bg-white rounded-lg shadow-lg overflow-hidden animate-slide-in" data-continent="north-america">
+                    <img src="images/mexico.jpg" alt="Mexico" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Mexico</h3>
+                        <p>Discover ancient Mayan ruins, vibrant festivals, and stunning beaches in Cancun.</p>
+                        <a href="#" class="text-blue-600 hover:underline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-xl font-semibold mb-4">Stay Connected</h3>
+            <div class="social-links flex justify-center space-x-6 mb-4">
+                <a href="https://www.instagram.com/gxuravshxrma?igsh=OW1mZDBnMWg0dHUz" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.linkedin.com/in/gaurav-sharma-gx?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/gxuravshxrma" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+            <p>© 2025 Wanderlust Designed by Gaurav Sharma. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate-slide-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        animateElements.forEach(el => observer.observe(el));
+
+        // Filter destinations by continent
+        const continentFilter = document.getElementById('continentFilter');
+        continentFilter.addEventListener('change', () => {
+            const selectedContinent = continentFilter.value;
+            document.querySelectorAll('.destination').forEach(destination => {
+                const continent = destination.getAttribute('data-continent');
+                if (selectedContinent === 'all' || continent === selectedContinent) {
+                    destination.style.display = 'block';
+                } else {
+                    destination.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
